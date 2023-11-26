@@ -38,7 +38,9 @@
       const fileSelector = document.getElementById('file-selector');
       fileSelector.addEventListener('change', (event) => {
         const fileList = event.target.files;
+        const file = fileList[0];
         console.log(fileList);
+        console.log(file.name, file.size);
       });
 
     </script>
