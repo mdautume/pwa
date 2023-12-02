@@ -17,7 +17,7 @@
     <script type="module" src="/pwa/js/index.js"></script>
     <script>
         if('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/pwa/sw.js', {scope: '/'});
+            navigator.serviceWorker.register('/pwa/sw.js', {scope: '/pwa/'});
         }
     </script>
 </body>
