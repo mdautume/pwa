@@ -1,56 +1,25 @@
 <!DOCTYPE html>
-<html lang="en-US" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="canonical" href="https://mdautume.github.io/pwa/" />
-    <link rel="shortcut icon" href="/pwa/images/icon-512.png" />
+<html lang="en">
+
+<head>
+    <title>Sqlime - SQLite Playground</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/pwa/img/favicon.ico">
     <link rel="manifest" href="/pwa/manifest.json">
-    <link rel="stylesheet" href="/pwa/converter.css">
-    <title>Temperature converter</title>
-  </head>
-  <body>
-    <img src="/pwa/images/icon-512.png" alt="My test image" />
-    <li><a href='tester1.html'>tester1</a>: Core unit and
-              regression tests for the various APIs and surrounding
-              utility code.</li>
-    <form id="converter">
-      <label for="input-temp">temperature</label>
-      <input type="text" id="input-temp" name="input-temp" value="20" />
-      <label for="input-unit">from</label>
-      <select id="input-unit" name="input-unit">
-        <option value="c" selected>Celsius</option>
-        <option value="f">Fahrenheit</option>
-        <option value="k">Kelvin</option>
-      </select>
-      <label for="output-unit">to</label>
-      <select id="output-unit" name="output-unit">
-        <option value="c">Celsius</option>
-        <option value="f" selected>Fahrenheit</option>
-        <option value="k">Kelvin</option>
-      </select>
-      <output name="output-temp" id="output-temp" for="input-temp input-unit output-unit">68 F</output>
-    </form>
+    <title>Load DB</title>
+</head>
 
-    <!-- The `multiple` attribute lets users select multiple files. -->
-    <input type="file" id="file-selector" >
+<body>
+    <input type='file' id='open-file'>
+    <script src="/pwa/js/sqlite/sqlite3.js"></script>
+    <script type="module" src="/pwa/js/index.js"></script>
     <script>
-      const fileSelector = document.getElementById('file-selector');
-      fileSelector.addEventListener('change', (event) => {
-        const fileList = event.target.files;
-        const file = fileList[0];
-        console.log(fileList);
-        console.log(file.name, file.size);
-      });
-
+        if('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/pwa/sw.js', {scope: '/'});
+        }
     </script>
+</body>
 
-
-    <script src="/pwa/converter.js"></script>
-    <script>
-    if('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/pwa/sw.js', { scope: '/pwa/' });
-    }
-    </script>
-  </body>
 </html>
