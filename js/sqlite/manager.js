@@ -11,6 +11,7 @@ const CONFIG = {
     printErr: console.error,
 };
 
+
 // init loads a database from the specified path
 // using the SQLite WASM API.
 async function init(name, path) {
